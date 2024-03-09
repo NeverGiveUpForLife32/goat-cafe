@@ -92,13 +92,11 @@ function LineItem(_ref) {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utilities_users_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/users-service */ "./src/utilities/users-service.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 
 function LoginForm(_ref) {
@@ -116,24 +114,18 @@ function LoginForm(_ref) {
     }));
     setError('');
   }
-  function handleSubmit(_x) {
-    return _handleSubmit.apply(this, arguments);
-  }
-  function _handleSubmit() {
-    _handleSubmit = _asyncToGenerator(function* (evt) {
-      // Prevent form from being submitted to the server
-      evt.preventDefault();
-      try {
-        // The promise returned by the signUp service method
-        // will resolve to the user object included in the
-        // payload of the JSON Web Token (JWT)
-        const user = yield _utilities_users_service__WEBPACK_IMPORTED_MODULE_1__.login(credentials);
-        setUser(user);
-      } catch (_unused) {
-        setError('Log In Failed - Try Again');
-      }
-    });
-    return _handleSubmit.apply(this, arguments);
+  async function handleSubmit(evt) {
+    // Prevent form from being submitted to the server
+    evt.preventDefault();
+    try {
+      // The promise returned by the signUp service method
+      // will resolve to the user object included in the
+      // payload of the JSON Web Token (JWT)
+      const user = await _utilities_users_service__WEBPACK_IMPORTED_MODULE_1__.login(credentials);
+      setUser(user);
+    } catch (_unused) {
+      setError('Log In Failed - Try Again');
+    }
   }
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "form-container"
@@ -176,7 +168,7 @@ function LoginForm(_ref) {
 function Logo() {
   return /*#__PURE__*/React.createElement("div", {
     className: _Logo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].Logo
-  }, /*#__PURE__*/React.createElement("div", null, "GOAT"), /*#__PURE__*/React.createElement("div", null, "CAFE"));
+  }, /*#__PURE__*/React.createElement("div", null, "ON A BUDGET"), /*#__PURE__*/React.createElement("div", null, "FLEMING"), /*#__PURE__*/React.createElement("div", null, "FOOD TRUCK"));
 }
 
 /***/ }),
@@ -280,21 +272,21 @@ function OrderDetail(_ref) {
     className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].sectionHeading
   }, order.isPaid ? /*#__PURE__*/React.createElement("span", null, "ORDER ", /*#__PURE__*/React.createElement("span", {
     className: "smaller"
-  }, order.orderId)) : /*#__PURE__*/React.createElement("span", null, "NEW ORDER"), /*#__PURE__*/React.createElement("span", null, new Date(order.updatedAt).toLocaleDateString())), /*#__PURE__*/React.createElement("div", {
+  }, order.orderId)) : /*#__PURE__*/React.createElement("span", null, "NEW ORDER "), /*#__PURE__*/React.createElement("span", null, new Date(order.updatedAt).toLocaleDateString())), /*#__PURE__*/React.createElement("div", {
     className: "".concat(_OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].lineItemContainer, " flex-ctr-ctr flex-col scroll-y")
   }, lineItems.length ? /*#__PURE__*/React.createElement(React.Fragment, null, lineItems, /*#__PURE__*/React.createElement("section", {
     className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].total
   }, order.isPaid ? /*#__PURE__*/React.createElement("span", {
     className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].right
-  }, "TOTAL\xA0\xA0") : /*#__PURE__*/React.createElement("button", {
+  }, "TOTAL QTY & PRICE\xA0\xA0") : /*#__PURE__*/React.createElement("button", {
     className: "btn-sm",
     onClick: handleCheckout,
     disabled: !lineItems.length
-  }, "CHECKOUT"), /*#__PURE__*/React.createElement("span", null, order.totalQty), /*#__PURE__*/React.createElement("span", {
+  }, "CHECKOUT HERE"), /*#__PURE__*/React.createElement("span", null, order.totalQty), /*#__PURE__*/React.createElement("span", {
     className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].right
   }, "$", order.orderTotal.toFixed(2)))) : /*#__PURE__*/React.createElement("div", {
     className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].hungry
-  }, "Hungry?")));
+  }, "Are You Hungry?")));
 }
 
 /***/ }),
@@ -381,57 +373,48 @@ function OrderListItem(_ref) {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utilities_users_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/users-service */ "./src/utilities/users-service.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 
 class SignUpForm extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
   constructor() {
-    var _this;
     super(...arguments);
-    _this = this;
-    this.state = {
+    _defineProperty(this, "state", {
       name: '',
       email: '',
       password: '',
       confirm: '',
       error: ''
-    };
-    this.handleChange = evt => {
+    });
+    _defineProperty(this, "handleChange", evt => {
       this.setState({
         [evt.target.name]: evt.target.value,
         error: ''
       });
-    };
-    this.handleSubmit = /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator(function* (evt) {
-        evt.preventDefault();
-        try {
-          const formData = _objectSpread({}, _this.state);
-          delete formData.confirm;
-          delete formData.error;
-          // The promise returned by the signUp service method
-          // will resolve to the user object included in the
-          // payload of the JSON Web Token (JWT)
-          const user = yield (0,_utilities_users_service__WEBPACK_IMPORTED_MODULE_1__.signUp)(formData);
-          // Baby step
-          _this.props.setUser(user);
-        } catch (_unused) {
-          // An error happened on the server
-          _this.setState({
-            error: 'Sign Up Failed - Try Again'
-          });
-        }
-      });
-      return function (_x) {
-        return _ref.apply(this, arguments);
-      };
-    }();
+    });
+    _defineProperty(this, "handleSubmit", async evt => {
+      evt.preventDefault();
+      try {
+        const formData = _objectSpread({}, this.state);
+        delete formData.confirm;
+        delete formData.error;
+        // The promise returned by the signUp service method
+        // will resolve to the user object included in the
+        // payload of the JSON Web Token (JWT)
+        const user = await (0,_utilities_users_service__WEBPACK_IMPORTED_MODULE_1__.signUp)(formData);
+        // Baby step
+        this.props.setUser(user);
+      } catch (_unused) {
+        // An error happened on the server
+        this.setState({
+          error: 'Sign Up Failed - Try Again'
+        });
+      }
+    });
   }
   // We must override the render method
   // The render method is the equivalent to a function-based component
@@ -562,7 +545,7 @@ function AuthPage(_ref) {
     className: _AuthPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].AuthPage
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_components_Logo_Logo__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/React.createElement("h3", {
     onClick: () => setShowLogin(!showLogin)
-  }, showLogin ? 'SIGN UP' : 'LOG IN')), showLogin ? /*#__PURE__*/React.createElement(_components_LoginForm_LoginForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, showLogin ? 'SIGN UP HERE' : 'LOG IN HERE')), showLogin ? /*#__PURE__*/React.createElement(_components_LoginForm_LoginForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
     setUser: setUser
   }) : /*#__PURE__*/React.createElement(_components_SignUpForm_SignUpForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
     setUser: setUser
@@ -593,8 +576,6 @@ function AuthPage(_ref) {
 /* harmony import */ var _components_OrderDetail_OrderDetail__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/OrderDetail/OrderDetail */ "./src/components/OrderDetail/OrderDetail.js");
 /* harmony import */ var _components_UserLogOut_UserLogOut__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/UserLogOut/UserLogOut */ "./src/components/UserLogOut/UserLogOut.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
 
@@ -616,31 +597,19 @@ function NewOrderPage(_ref) {
   const categoriesRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)([]);
   const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    function getItems() {
-      return _getItems.apply(this, arguments);
-    }
-    function _getItems() {
-      _getItems = _asyncToGenerator(function* () {
-        const items = yield _utilities_items_api__WEBPACK_IMPORTED_MODULE_8__.getAll();
-        categoriesRef.current = items.reduce((cats, item) => {
-          const cat = item.category.name;
-          return cats.includes(cat) ? cats : [...cats, cat];
-        }, []);
-        setMenuItems(items);
-        setActiveCat(categoriesRef.current[0]);
-      });
-      return _getItems.apply(this, arguments);
+    async function getItems() {
+      const items = await _utilities_items_api__WEBPACK_IMPORTED_MODULE_8__.getAll();
+      categoriesRef.current = items.reduce((cats, item) => {
+        const cat = item.category.name;
+        return cats.includes(cat) ? cats : [...cats, cat];
+      }, []);
+      setMenuItems(items);
+      setActiveCat(categoriesRef.current[0]);
     }
     getItems();
-    function getCart() {
-      return _getCart.apply(this, arguments);
-    }
-    function _getCart() {
-      _getCart = _asyncToGenerator(function* () {
-        const cart = yield _utilities_orders_api__WEBPACK_IMPORTED_MODULE_9__.getCart();
-        setCart(cart);
-      });
-      return _getCart.apply(this, arguments);
+    async function getCart() {
+      const cart = await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_9__.getCart();
+      setCart(cart);
     }
     getCart();
   }, []);
@@ -649,35 +618,17 @@ function NewOrderPage(_ref) {
   // the FIRST render only
 
   /*-- Event Handlers --*/
-  function handleAddToOrder(_x) {
-    return _handleAddToOrder.apply(this, arguments);
+  async function handleAddToOrder(itemId) {
+    const updatedCart = await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_9__.addItemToCart(itemId);
+    setCart(updatedCart);
   }
-  function _handleAddToOrder() {
-    _handleAddToOrder = _asyncToGenerator(function* (itemId) {
-      const updatedCart = yield _utilities_orders_api__WEBPACK_IMPORTED_MODULE_9__.addItemToCart(itemId);
-      setCart(updatedCart);
-    });
-    return _handleAddToOrder.apply(this, arguments);
+  async function handleChangeQty(itemId, newQty) {
+    const updatedCart = await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_9__.setItemQtyInCart(itemId, newQty);
+    setCart(updatedCart);
   }
-  function handleChangeQty(_x2, _x3) {
-    return _handleChangeQty.apply(this, arguments);
-  }
-  function _handleChangeQty() {
-    _handleChangeQty = _asyncToGenerator(function* (itemId, newQty) {
-      const updatedCart = yield _utilities_orders_api__WEBPACK_IMPORTED_MODULE_9__.setItemQtyInCart(itemId, newQty);
-      setCart(updatedCart);
-    });
-    return _handleChangeQty.apply(this, arguments);
-  }
-  function handleCheckout() {
-    return _handleCheckout.apply(this, arguments);
-  }
-  function _handleCheckout() {
-    _handleCheckout = _asyncToGenerator(function* () {
-      yield _utilities_orders_api__WEBPACK_IMPORTED_MODULE_9__.checkout();
-      navigate('/orders');
-    });
-    return _handleCheckout.apply(this, arguments);
+  async function handleCheckout() {
+    await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_9__.checkout();
+    navigate('/orders');
   }
   return /*#__PURE__*/React.createElement("main", {
     className: _NewOrderPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].NewOrderPage
@@ -688,7 +639,7 @@ function NewOrderPage(_ref) {
   }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
     to: "/orders",
     className: "button btn-sm"
-  }, "PREVIOUS ORDERS"), /*#__PURE__*/React.createElement(_components_UserLogOut_UserLogOut__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, "PREVIOUS ORDERS HERE"), /*#__PURE__*/React.createElement(_components_UserLogOut_UserLogOut__WEBPACK_IMPORTED_MODULE_6__["default"], {
     user: user,
     setUser: setUser
   })), /*#__PURE__*/React.createElement(_components_MenuList_MenuList__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -722,8 +673,6 @@ function NewOrderPage(_ref) {
 /* harmony import */ var _components_OrderList_OrderList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/OrderList/OrderList */ "./src/components/OrderList/OrderList.js");
 /* harmony import */ var _components_OrderDetail_OrderDetail__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/OrderDetail/OrderDetail */ "./src/components/OrderDetail/OrderDetail.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
 
@@ -744,17 +693,11 @@ function OrderHistoryPage(_ref) {
   /*--- Side Effects --- */
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     // Load previous orders (paid)
-    function fetchOrderHistory() {
-      return _fetchOrderHistory.apply(this, arguments);
-    }
-    function _fetchOrderHistory() {
-      _fetchOrderHistory = _asyncToGenerator(function* () {
-        const orders = yield _utilities_orders_api__WEBPACK_IMPORTED_MODULE_6__.getOrderHistory();
-        setOrders(orders);
-        // If no orders, activeOrder will be set to null below
-        setActiveOrder(orders[0] || null);
-      });
-      return _fetchOrderHistory.apply(this, arguments);
+    async function fetchOrderHistory() {
+      const orders = await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_6__.getOrderHistory();
+      setOrders(orders);
+      // If no orders, activeOrder will be set to null below
+      setActiveOrder(orders[0] || null);
     }
     fetchOrderHistory();
   }, []);
@@ -772,7 +715,7 @@ function OrderHistoryPage(_ref) {
   }, /*#__PURE__*/React.createElement(_components_Logo_Logo__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
     to: "/orders/new",
     className: "button btn-sm"
-  }, "NEW ORDER"), /*#__PURE__*/React.createElement(_components_UserLogOut_UserLogOut__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, "NEW ORDER HERE"), /*#__PURE__*/React.createElement(_components_UserLogOut_UserLogOut__WEBPACK_IMPORTED_MODULE_3__["default"], {
     user: user,
     setUser: setUser
   })), /*#__PURE__*/React.createElement(_components_OrderList_OrderList__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -951,43 +894,33 @@ function getOrderHistory() {
 /* harmony export */   "default": () => (/* binding */ sendRequest)
 /* harmony export */ });
 /* harmony import */ var _users_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users-service */ "./src/utilities/users-service.js");
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function sendRequest(_x) {
-  return _sendRequest.apply(this, arguments);
-}
-function _sendRequest() {
-  _sendRequest = _asyncToGenerator(function (url) {
-    let method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'GET';
-    let payload = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-    return function* () {
-      // Fetch takes an optional options object as the 2nd argument
-      // used to include a data payload, set headers, etc.
-      const options = {
-        method
-      };
-      if (payload) {
-        options.headers = {
-          'Content-Type': 'application/json'
-        };
-        options.body = JSON.stringify(payload);
-      }
-      const token = (0,_users_service__WEBPACK_IMPORTED_MODULE_0__.getToken)();
-      if (token) {
-        // Ensure headers object exists
-        options.headers = options.headers || {};
-        // Add token to an Authorization header
-        // Prefacing with 'Bearer' is recommended in the HTTP specification
-        options.headers.Authorization = "Bearer ".concat(token);
-      }
-      const res = yield fetch(url, options);
-      // res.ok will be false if the status code set to 4xx in the controller action
-      if (res.ok) return res.json();
-      throw new Error('Bad Request');
-    }();
-  });
-  return _sendRequest.apply(this, arguments);
+async function sendRequest(url) {
+  let method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'GET';
+  let payload = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  // Fetch takes an optional options object as the 2nd argument
+  // used to include a data payload, set headers, etc.
+  const options = {
+    method
+  };
+  if (payload) {
+    options.headers = {
+      'Content-Type': 'application/json'
+    };
+    options.body = JSON.stringify(payload);
+  }
+  const token = (0,_users_service__WEBPACK_IMPORTED_MODULE_0__.getToken)();
+  if (token) {
+    // Ensure headers object exists
+    options.headers = options.headers || {};
+    // Add token to an Authorization header
+    // Prefacing with 'Bearer' is recommended in the HTTP specification
+    options.headers.Authorization = "Bearer ".concat(token);
+  }
+  const res = await fetch(url, options);
+  // res.ok will be false if the status code set to 4xx in the controller action
+  if (res.ok) return res.json();
+  throw new Error('Bad Request');
 }
 
 /***/ }),
@@ -1028,35 +961,21 @@ function login(credentials) {
 /* harmony export */   signUp: () => (/* binding */ signUp)
 /* harmony export */ });
 /* harmony import */ var _users_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users-api */ "./src/utilities/users-api.js");
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function signUp(_x) {
-  return _signUp.apply(this, arguments);
+async function signUp(userData) {
+  // Delete the network request code to the
+  // users-api.js module which will ultimately
+  // return the JWT
+  const token = await _users_api__WEBPACK_IMPORTED_MODULE_0__.signUp(userData);
+  // Persist the token to localStorage
+  localStorage.setItem('token', token);
+  return getUser();
 }
-function _signUp() {
-  _signUp = _asyncToGenerator(function* (userData) {
-    // Delete the network request code to the
-    // users-api.js module which will ultimately
-    // return the JWT
-    const token = yield _users_api__WEBPACK_IMPORTED_MODULE_0__.signUp(userData);
-    // Persist the token to localStorage
-    localStorage.setItem('token', token);
-    return getUser();
-  });
-  return _signUp.apply(this, arguments);
-}
-function login(_x2) {
-  return _login.apply(this, arguments);
-}
-function _login() {
-  _login = _asyncToGenerator(function* (credentials) {
-    const token = yield _users_api__WEBPACK_IMPORTED_MODULE_0__.login(credentials);
-    // Persist the token to localStorage
-    localStorage.setItem('token', token);
-    return getUser();
-  });
-  return _login.apply(this, arguments);
+async function login(credentials) {
+  const token = await _users_api__WEBPACK_IMPORTED_MODULE_0__.login(credentials);
+  // Persist the token to localStorage
+  localStorage.setItem('token', token);
+  return getUser();
 }
 function getToken() {
   const token = localStorage.getItem('token');
@@ -1115,15 +1034,15 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.l8hJyaPvo9smd6LiNqWK {
 
 .l8hJyaPvo9smd6LiNqWK li:hover:not(._scckhAN2KPE1u73kR14) {
   cursor: pointer;
-  background-color: var(--orange);
-  color: var(--white);
+  background-color: var(--blue);
+  color: var(--orange);
 }
 
 .l8hJyaPvo9smd6LiNqWK li._scckhAN2KPE1u73kR14 {
   color: var(--text-dark);
-  background-color: var(--tan-1);
-  border: 0.1vmin solid var(--tan-3);
-}`, "",{"version":3,"sources":["webpack://./src/components/CategoryList/CategoryList.module.scss"],"names":[],"mappings":"AAAA;EACI,wBAAA;EACA,gBAAA;EACA,UAAA;EACA,gBAAA;AACJ;;AAEI;EACA,gBAAA;EACA,kBAAA;EACA,sBAAA;EACA,sBAAA;AACJ;;AAEI;EACA,eAAA;EACA,+BAAA;EACA,mBAAA;AACJ;;AAEI;EACA,uBAAA;EACA,8BAAA;EACA,kCAAA;AACJ","sourcesContent":[".CategoryList {\n    color: var(--text-light);\n    list-style: none;\n    padding: 0;\n    font-size: 1.7vw;\n    }\n    \n    .CategoryList li {\n    padding: .6vmin;\n    text-align: center;\n    border-radius: .5vmin;\n    margin-bottom: .5vmin;\n    }\n    \n    .CategoryList li:hover:not(.active) {\n    cursor: pointer;\n    background-color: var(--orange);\n    color: var(--white);\n    }\n    \n    .CategoryList li.active {\n    color: var(--text-dark);\n    background-color: var(--tan-1);\n    border: .1vmin solid var(--tan-3);\n    }"],"sourceRoot":""}]);
+  background-color: var(--blue-1);
+  border: 0.1vmin solid var(--blue-3);
+}`, "",{"version":3,"sources":["webpack://./src/components/CategoryList/CategoryList.module.scss"],"names":[],"mappings":"AAAA;EACI,wBAAA;EACA,gBAAA;EACA,UAAA;EACA,gBAAA;AACJ;;AAEI;EACA,gBAAA;EACA,kBAAA;EACA,sBAAA;EACA,sBAAA;AACJ;;AAEI;EACA,eAAA;EACA,6BAAA;EACA,oBAAA;AACJ;;AAEI;EACA,uBAAA;EACA,+BAAA;EACA,mCAAA;AACJ","sourcesContent":[".CategoryList {\n    color: var(--text-light);\n    list-style: none;\n    padding: 0;\n    font-size: 1.7vw;\n    }\n    \n    .CategoryList li {\n    padding: .6vmin;\n    text-align: center;\n    border-radius: .5vmin;\n    margin-bottom: .5vmin;\n    }\n    \n    .CategoryList li:hover:not(.active) {\n    cursor: pointer;\n    background-color: var(--blue);\n    color: var(--orange);\n    }\n    \n    .CategoryList li.active {\n    color: var(--text-dark);\n    background-color: var(--blue-1);\n    border: .1vmin solid var(--blue-3);\n    }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"CategoryList": `l8hJyaPvo9smd6LiNqWK`,
@@ -1214,18 +1133,21 @@ ___CSS_LOADER_EXPORT___.locals = {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.EDeinQzfS2N2rVW_Z1GP {
-  height: 12vmin;
-  width: 12vmin;
+  height: 30vmin;
+  width: 30vmin;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   background-color: var(--orange);
-  color: var(--tan-1);
-  font-size: 2.7vmin;
-  border: 0.6vmin solid var(--tan-2);
-}`, "",{"version":3,"sources":["webpack://./src/components/Logo/Logo.module.scss"],"names":[],"mappings":"AAAA;EACI,cAAA;EACA,aAAA;EACA,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,+BAAA;EACA,mBAAA;EACA,kBAAA;EACA,kCAAA;AACJ","sourcesContent":[".Logo {\n    height: 12vmin;\n    width: 12vmin;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    border-radius: 50%;\n    background-color: var(--orange);\n    color: var(--tan-1);\n    font-size: 2.7vmin;\n    border: .6vmin solid var(--tan-2);\n    }"],"sourceRoot":""}]);
+  color: var(--blue-1);
+  font-size: 2.5vmin;
+  border: 0.6vmin solid var(--blue-2);
+  font-weight: bold;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 30px;
+}`, "",{"version":3,"sources":["webpack://./src/components/Logo/Logo.module.scss"],"names":[],"mappings":"AAAA;EACI,cAAA;EACA,aAAA;EACA,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,+BAAA;EACA,oBAAA;EACA,kBAAA;EACA,mCAAA;EACA,iBAAA;EACA,oCAAA;EACA,eAAA;AACJ","sourcesContent":[".Logo {\n    height: 30vmin;\n    width: 30vmin;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    border-radius: 50%;\n    background-color: var(--orange);\n    color: var(--blue-1);\n    font-size: 2.5vmin;\n    border: .6vmin solid var(--blue-2);\n    font-weight: bold;\n    font-family: 'Luckiest Guy', cursive;\n    font-size: 30px;\n    }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"Logo": `EDeinQzfS2N2rVW_Z1GP`
@@ -1254,13 +1176,13 @@ ___CSS_LOADER_EXPORT___.locals = {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.eBz5FvD9TgyIgfFi1MdG {
-  background-color: var(--tan-1);
-  border: 0.1vmin solid var(--tan-3);
+  background-color: var(--blue-1);
+  border: 0.1vmin solid var(--blue-3);
   border-radius: 2vmin;
   margin: 3vmin 0;
   padding: 3vmin;
   overflow-y: scroll;
-}`, "",{"version":3,"sources":["webpack://./src/components/MenuList/MenuList.module.scss"],"names":[],"mappings":"AAAA;EACI,8BAAA;EACA,kCAAA;EACA,oBAAA;EACA,eAAA;EACA,cAAA;EACA,kBAAA;AACJ","sourcesContent":[".MenuList {\n    background-color: var(--tan-1);\n    border: .1vmin solid var(--tan-3);\n    border-radius: 2vmin;\n    margin: 3vmin 0;\n    padding: 3vmin;\n    overflow-y: scroll;\n    }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/MenuList/MenuList.module.scss"],"names":[],"mappings":"AAAA;EACI,+BAAA;EACA,mCAAA;EACA,oBAAA;EACA,eAAA;EACA,cAAA;EACA,kBAAA;AACJ","sourcesContent":[".MenuList {\n    background-color: var(--blue-1);\n    border: .1vmin solid var(--blue-3);\n    border-radius: 2vmin;\n    margin: 3vmin 0;\n    padding: 3vmin;\n    overflow-y: scroll;\n    }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"MenuList": `eBz5FvD9TgyIgfFi1MdG`
@@ -1296,8 +1218,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.X4tFBfG4MKknHvd01CKE {
   margin-bottom: 3vmin;
   padding: 2vmin;
   color: var(--text-light);
-  background-color: var(--white);
-  border: 0.1vmin solid var(--tan-3);
+  background-color: var(--gray);
+  border: 0.1vmin solid var(--blue-3);
   border-radius: 1vmin;
   font-size: 4vmin;
 }
@@ -1326,7 +1248,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.X4tFBfG4MKknHvd01CKE {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);
-}`, "",{"version":3,"sources":["webpack://./src/components/MenuListItem/MenuListItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,oBAAA;EACA,cAAA;EACA,wBAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;EACA,gBAAA;AACJ;;AAEE;EACE,WAAA;EACA,UAAA;EACA,cAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;AACJ;;AAEE;EACE,gBAAA;EACA,kBAAA;EACA,wBAAA;AACJ;;AAEE;EACE,cAAA;EACA,kBAAA;EACA,wBAAA;AACJ","sourcesContent":[".MenuListItem {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 3vmin;\n    padding: 2vmin;\n    color: var(--text-light);\n    background-color: var(--white);\n    border: .1vmin solid var(--tan-3);\n    border-radius: 1vmin;\n    font-size: 4vmin;\n  }\n  \n  .MenuListItem .emoji {\n    height: 8vw;\n    width: 8vw;\n    font-size: 4vw;\n    background-color: var(--tan-1);\n    border: .1vmin solid var(--tan-3);\n    border-radius: 1vmin;\n  }\n  \n  .MenuListItem .buy {\n    display: flex;\n    flex-direction: column;\n  }\n  \n  .MenuListItem .buy span {\n    font-size: 1.7vw;\n    text-align: center;\n    color: var(--text-light);\n  }\n  \n  .MenuListItem .name {\n    font-size: 2vw;\n    text-align: center;\n    color: var(--text-light);\n  }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/MenuListItem/MenuListItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,oBAAA;EACA,cAAA;EACA,wBAAA;EACA,6BAAA;EACA,mCAAA;EACA,oBAAA;EACA,gBAAA;AACJ;;AAEE;EACE,WAAA;EACA,UAAA;EACA,cAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;AACJ;;AAEE;EACE,gBAAA;EACA,kBAAA;EACA,wBAAA;AACJ;;AAEE;EACE,cAAA;EACA,kBAAA;EACA,wBAAA;AACJ","sourcesContent":[".MenuListItem {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 3vmin;\n    padding: 2vmin;\n    color: var(--text-light);\n    background-color: var(--gray);\n    border: .1vmin solid var(--blue-3);\n    border-radius: 1vmin;\n    font-size: 4vmin;\n  }\n  \n  .MenuListItem .emoji {\n    height: 8vw;\n    width: 8vw;\n    font-size: 4vw;\n    background-color: var(--tan-1);\n    border: .1vmin solid var(--tan-3);\n    border-radius: 1vmin;\n  }\n  \n  .MenuListItem .buy {\n    display: flex;\n    flex-direction: column;\n  }\n  \n  .MenuListItem .buy span {\n    font-size: 1.7vw;\n    text-align: center;\n    color: var(--text-light);\n  }\n  \n  .MenuListItem .name {\n    font-size: 2vw;\n    text-align: center;\n    color: var(--text-light);\n  }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"MenuListItem": `X4tFBfG4MKknHvd01CKE`,
@@ -1440,8 +1362,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.l6Ner7C7O5I4V69HVVgW {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--tan-1);
-  border: 0.1vmin solid var(--tan-3);
+  background-color: var(--light blue-1);
+  border: 0.1vmin solid var(--light blue-3);
   border-radius: 2vmin;
   margin: 3vmin 0;
   padding: 3vmin;
@@ -1453,7 +1375,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.l6Ner7C7O5I4V69HVVgW {
   font-size: 2vmin;
   position: absolute;
   top: 50vh;
-}`, "",{"version":3,"sources":["webpack://./src/components/OrderList/OrderList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;EACA,eAAA;EACA,cAAA;EACA,kBAAA;AACJ;;AAEI;EACA,wBAAA;EACA,gBAAA;EACA,kBAAA;EACA,SAAA;AACJ","sourcesContent":[".OrderList {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background-color: var(--tan-1);\n    border: .1vmin solid var(--tan-3);\n    border-radius: 2vmin;\n    margin: 3vmin 0;\n    padding: 3vmin;\n    overflow-y: scroll;\n    }\n    \n    .OrderList .noOrders {\n    color: var(--text-light);\n    font-size: 2vmin;\n    position: absolute;\n    top: calc(50vh);\n    }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/OrderList/OrderList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,qCAAA;EACA,yCAAA;EACA,oBAAA;EACA,eAAA;EACA,cAAA;EACA,kBAAA;AACJ;;AAEI;EACA,wBAAA;EACA,gBAAA;EACA,kBAAA;EACA,SAAA;AACJ","sourcesContent":[".OrderList {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background-color: var(--light blue-1);\n    border: .1vmin solid var(--light blue-3);\n    border-radius: 2vmin;\n    margin: 3vmin 0;\n    padding: 3vmin;\n    overflow-y: scroll;\n    }\n    \n    .OrderList .noOrders {\n    color: var(--text-light);\n    font-size: 2vmin;\n    position: absolute;\n    top: calc(50vh);\n    }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"OrderList": `l6Ner7C7O5I4V69HVVgW`,
@@ -1490,8 +1412,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.SbDKL2bctOyC5ZgA0KfW {
   margin-bottom: 3vmin;
   padding: 2vmin;
   color: var(--text-light);
-  background-color: var(--white);
-  border: 0.2vmin solid var(--tan-3);
+  background-color: var(--gray);
+  border: 0.2vmin solid var(--light blue-3);
   border-radius: 1vmin;
   font-size: 2vmin;
   cursor: pointer;
@@ -1502,15 +1424,15 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.SbDKL2bctOyC5ZgA0KfW {
 }
 
 .SbDKL2bctOyC5ZgA0KfW.mOA_Z5p05rn7VW_2oU68 {
-  border-color: var(--orange);
+  border-color: var(--blue);
   border-width: 0.2vmin;
   cursor: default;
 }
 
 .SbDKL2bctOyC5ZgA0KfW:not(.mOA_Z5p05rn7VW_2oU68):hover {
-  border-color: var(--orange);
+  border-color: var(--blue);
   border-width: 0.2vmin;
-}`, "",{"version":3,"sources":["webpack://./src/components/OrderListItem/OrderListItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,oBAAA;EACA,cAAA;EACA,wBAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;EACA,gBAAA;EACA,eAAA;AACJ;;AAEI;EACA,sBAAA;AACJ;;AAEI;EACA,2BAAA;EACA,qBAAA;EACA,eAAA;AACJ;;AAEI;EACA,2BAAA;EACA,qBAAA;AACJ","sourcesContent":[".OrderListItem {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 3vmin;\n    padding: 2vmin;\n    color: var(--text-light);\n    background-color: var(--white);\n    border: .2vmin solid var(--tan-3);\n    border-radius: 1vmin;\n    font-size: 2vmin;\n    cursor: pointer;\n    }\n    \n    .OrderListItem > div> div:first-child {\n    margin-bottom: .5vmin;\n    }\n    \n    .OrderListItem.selected {\n    border-color: var(--orange);\n    border-width: .2vmin;\n    cursor: default;\n    }\n    \n    .OrderListItem:not(.selected):hover {\n    border-color: var(--orange);\n    border-width: .2vmin;\n    }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/OrderListItem/OrderListItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,oBAAA;EACA,cAAA;EACA,wBAAA;EACA,6BAAA;EACA,yCAAA;EACA,oBAAA;EACA,gBAAA;EACA,eAAA;AACJ;;AAEI;EACA,sBAAA;AACJ;;AAEI;EACA,yBAAA;EACA,qBAAA;EACA,eAAA;AACJ;;AAEI;EACA,yBAAA;EACA,qBAAA;AACJ","sourcesContent":[".OrderListItem {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 3vmin;\n    padding: 2vmin;\n    color: var(--text-light);\n    background-color: var(--gray);\n    border: .2vmin solid var(--light blue-3);\n    border-radius: 1vmin;\n    font-size: 2vmin;\n    cursor: pointer;\n    }\n    \n    .OrderListItem > div> div:first-child {\n    margin-bottom: .5vmin;\n    }\n    \n    .OrderListItem.selected {\n    border-color: var(--blue);\n    border-width: .2vmin;\n    cursor: default;\n    }\n    \n    .OrderListItem:not(.selected):hover {\n    border-color: var(--blue);\n    border-width: .2vmin;\n    }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"OrderListItem": `SbDKL2bctOyC5ZgA0KfW`,
@@ -1623,7 +1545,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.RZqTJBeYN7RXwcHgPFys {
   display: grid;
   grid-template-columns: 1.6fr 3.5fr 3fr;
   grid-template-rows: 1fr;
-  background-color: var(--white);
+  background-color: var(--gray);
   border-radius: 2vmin;
 }
 
@@ -1633,7 +1555,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.RZqTJBeYN7RXwcHgPFys {
   justify-content: space-between;
   align-items: center;
   margin: 3vmin 2vmin;
-}`, "",{"version":3,"sources":["webpack://./src/pages/NewOrderPage/NewOrderPage.module.scss"],"names":[],"mappings":"AAAA;EACI,YAAA;EACA,aAAA;EACA,sCAAA;EACA,uBAAA;EACA,8BAAA;EACA,oBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,8BAAA;EACA,mBAAA;EACA,mBAAA;AACJ","sourcesContent":[".NewOrderPage {\n    height: 100%;\n    display: grid;\n    grid-template-columns: 1.6fr 3.5fr 3fr;\n    grid-template-rows: 1fr;\n    background-color: var(--white);\n    border-radius: 2vmin;\n  }\n  \n  .NewOrderPage aside {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    margin: 3vmin 2vmin;\n  }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/pages/NewOrderPage/NewOrderPage.module.scss"],"names":[],"mappings":"AAAA;EACI,YAAA;EACA,aAAA;EACA,sCAAA;EACA,uBAAA;EACA,6BAAA;EACA,oBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,8BAAA;EACA,mBAAA;EACA,mBAAA;AACJ","sourcesContent":[".NewOrderPage {\n    height: 100%;\n    display: grid;\n    grid-template-columns: 1.6fr 3.5fr 3fr;\n    grid-template-rows: 1fr;\n    background-color: var(--gray);\n    border-radius: 2vmin;\n  }\n  \n  .NewOrderPage aside {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    margin: 3vmin 2vmin;\n  }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"NewOrderPage": `RZqTJBeYN7RXwcHgPFys`
@@ -1666,7 +1588,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.U7F51i6q23MB43wS4GeC {
   display: grid;
   grid-template-columns: 1.6fr 3.5fr 3fr;
   grid-template-rows: 1fr;
-  background-color: var(--white);
+  background-color: var(--gray);
   border-radius: 2vmin;
 }
 
@@ -1676,7 +1598,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.U7F51i6q23MB43wS4GeC {
   justify-content: space-between;
   align-items: center;
   margin: 3vmin 2vmin;
-}`, "",{"version":3,"sources":["webpack://./src/pages/OrderHistoryPage/OrderHistoryPage.module.scss"],"names":[],"mappings":"AAAA;EACI,YAAA;EACA,aAAA;EACA,sCAAA;EACA,uBAAA;EACA,8BAAA;EACA,oBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,8BAAA;EACA,mBAAA;EACA,mBAAA;AACJ","sourcesContent":[".OrderHistoryPage {\n    height: 100%;\n    display: grid;\n    grid-template-columns: 1.6fr 3.5fr 3fr;\n    grid-template-rows: 1fr;\n    background-color: var(--white);\n    border-radius: 2vmin;\n  }\n  \n  .OrderHistoryPage .aside {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    margin: 3vmin 2vmin;\n  }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/pages/OrderHistoryPage/OrderHistoryPage.module.scss"],"names":[],"mappings":"AAAA;EACI,YAAA;EACA,aAAA;EACA,sCAAA;EACA,uBAAA;EACA,6BAAA;EACA,oBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;EACA,8BAAA;EACA,mBAAA;EACA,mBAAA;AACJ","sourcesContent":[".OrderHistoryPage {\n    height: 100%;\n    display: grid;\n    grid-template-columns: 1.6fr 3.5fr 3fr;\n    grid-template-rows: 1fr;\n    background-color: var(--gray);\n    border-radius: 2vmin;\n  }\n  \n  .OrderHistoryPage .aside {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    margin: 3vmin 2vmin;\n  }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"OrderHistoryPage": `U7F51i6q23MB43wS4GeC`,
@@ -2483,6 +2405,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/create fake namespace object */
+/******/ 	(() => {
+/******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
+/******/ 		var leafPrototypes;
+/******/ 		// create a fake namespace object
+/******/ 		// mode & 1: value is a module id, require it
+/******/ 		// mode & 2: merge all properties of value into the ns
+/******/ 		// mode & 4: return value when already ns object
+/******/ 		// mode & 16: return value when it's Promise-like
+/******/ 		// mode & 8|1: behave like require
+/******/ 		__webpack_require__.t = function(value, mode) {
+/******/ 			if(mode & 1) value = this(value);
+/******/ 			if(mode & 8) return value;
+/******/ 			if(typeof value === 'object' && value) {
+/******/ 				if((mode & 4) && value.__esModule) return value;
+/******/ 				if((mode & 16) && typeof value.then === 'function') return value;
+/******/ 			}
+/******/ 			var ns = Object.create(null);
+/******/ 			__webpack_require__.r(ns);
+/******/ 			var def = {};
+/******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
+/******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
+/******/ 				Object.getOwnPropertyNames(current).forEach((key) => (def[key] = () => (value[key])));
+/******/ 			}
+/******/ 			def['default'] = () => (value);
+/******/ 			__webpack_require__.d(ns, def);
+/******/ 			return ns;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -2498,6 +2450,17 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/node module decorator */

@@ -1,13 +1,16 @@
 .Logo {
-    height: 12vmin;
-    width: 12vmin;
+    height: 30vmin;
+    width: 30vmin;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     background-color: var(--orange);
-    color: var(--tan-1);
-    font-size: 2.7vmin;
-    border: .6vmin solid var(--tan-2);
+    color: var(--blue-1);
+    font-size: 2.5vmin;
+    border: .6vmin solid var(--blue-2);
+    font-weight: bold;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 30px;
     }
