@@ -1,68 +1,52 @@
-# Big Poppa Code React Starter Kit
-This Starter Kit is being created for New Web Developers that want to get started with react
+# Description 
+### This application is a online option for ordering organic foods all while wanting to save some money while doing it.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+# Getting Started
+1. clone the repo 
+    - git@github.com:NeverGiveUpForLife32/goat-cafe.git
 
-Most people use a CLI Tool like Vue-Cli or Create React App and no idea what these things are doing
+3. touch .env
+4. SECRET= 
 
-The goal of this is for it to be a tool that let's you learn JS at a new level because you have access to
-everything under the hood and no opinionated set up
+2. npm install :point_down:
+----------------------------------------------------------------------------------------------------------------------------------------------------
+## Installation
+--- 
+- npm install express 
+- npm install morgan
+- npm install gulp
+- npm install mongodb-memory-server
+- npm install webpack
+- npm install mongoose
+- npm install dotenv
+---------------------------------------------------------------------------------------------------------------------------------------------------
+# RESRful Routes 
 
-I will base all my tutorials on this Starter Kit.
+## USER 
 
-# Who Am I?
-
-![arthurbernierjr.com](http://progressandfortune.com/smac_images/profile.jpg)
-
-I am Arthur Bernier Jr. I work as freelance fullstack web developer and attraction marketing consultant specializing in supporting e-commerce brands,
-subscription box sites, social activists, religious/non-profit leaders and creative entrepreneurs(i.e. barbers, artists, musicians, stylists, models and photographers).
-I have a passion for helping entrepreneurs reach their perfect audience and helping you communicate to that audience in a way that makes them know, like and trust you. I also am a Full-Time Instructor at General Assembly as well as a Software Engineer at Blavity Inc.
+| Action | Method | Path | Action |
+| -----------| ----------- | ----------- | ----------- |
+| create | Post | / | Creates a User |
+| login| Post | /login | logs in a created User |
+| index| GET | /check-token | |
 
 
-# My Favorite Online Instructors
 
-[__Colt Steele__](https://www.youtube.com/channel/UCrqAGUPPMOdo0jfQ6grikZw)
 
-[__Brad Traversy__](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
+## items 
 
-[__Jose Santos Garcia__](https://www.youtube.com/channel/UC46wWUso9H5KPQcoL9iE3Ug)
+| Action | Method | Path | Action |
+|-----------| ----------- |----------- | ----------- |
+| index | Get | / | shows a list of items |
+| index | Get | /:id | shows a single item |
 
-[__Stephen Grider__](https://www.youtube.com/channel/UCQCaS3atWyNHEy5PkDXdpNg/)
 
-## Steps
+## orders 
 
-**Install Gulp Globally**
-```bash
-npm i -g gulp-cli
-```
-
-**Start the dev server**
-```bash
-npm run dev
-```
-### or
-```bash
-yarn dev
-```
-
-**Start the dev server with proxy**
-```bash
-npm run proxy
-```
-
-**Build files for production**
-```bash
-yarn build
-```
-### or
-
-```bash
-npm run build
-```
-
-**Deploy for production script**
-```bash
-npm start
-```
-### or
-```bash
-yarn start
-```
+| Action | Method | Path | Action |
+|-----------| ----------- |----------- | ----------- |
+| index | Get |/cart| Shows items in cart|
+| index | Get | /history | previous orders |
+| create | POST |/cart/items/:id| |
+| create | POST |/cart/checkout | |
+| update | PUT | /cart/qty |  |
